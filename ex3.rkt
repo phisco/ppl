@@ -25,9 +25,18 @@
          (display b))
   )
 
-(define-syntax mtoa
+(define-syntax prohibit-one-arg 
+  (syntax-rules () 
+    ((_ fun arg) (if)) ;;trick to require mtoa at least to have 2 parameters
+    ((_ fun . args) (fun . args))
+    )
+  )
+;;can also be raised at expansion tyme using "syntax-error"
+(define-syntax prohibit-one-arg-with-errors
   (syntax-rules ()
-    ((mtoa fun arg) (if)))) ;;trick to require mtoa at least to have 2 parameters
+                ((_ fun arg) (syntax-error "not allowed 1 arg only" fun arg))
+                ((_ fun . args) (fun . args)))
+)
 
 (define-syntax repeat
   (syntax-rules (until)
