@@ -1,0 +1,6 @@
+[submodule "ppl"]
+	path = ppl
+	url = https://github.com/riccardotommasini/ppl.git
+[submodule "ppl_official"]
+	path = ppl_official
+	url = https://github.com/riccardotommasini/ppl.git
